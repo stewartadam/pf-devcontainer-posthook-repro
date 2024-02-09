@@ -1,0 +1,48 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/miniconda
+{
+  "name": "Ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ],
+  "containerEnv": {
+    "CONDA_ENV_NAME": "sandbox"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // PromptFlow and AML-related
+        "prompt-flow.prompt-flow",
+        "ms-toolsai.vscode-ai",
+        "redhat.vscode-yaml",
+        // Python tooling
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        // Editor tooling
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "python.terminal.activateEnvironment": true,
+        "python.condaPath": "/opt/conda/bin/conda",
+        "python.defaultInterpreterPath": "/opt/conda/envs/${containerEnv:CONDA_ENV_NAME}",
+        "python.editor.formatOnSave": true,
+        "python.editor.defaultFormatter": "charliermarsh.ruff",
+        "python.editor.codeActionsOnSave": {
+          "source.organizeImports": true
+        },
+        "notebook.formatOnSave.enabled": true,
+        "notebook.codeActionsOnSave": {
+          "source.organizeImports": true
+        }
+      }
+    }
+  },
+  // See https://containers.dev/features
+  "features": {
+    "ghcr.io/devcontainers/features/conda": "latest"
+  },
+  "onCreateCommand": "/bin/bash .devcontainer/post-create.sh",
+  "postStartCommand": "/bin/bash .devcontainer/post-start.sh"
+}

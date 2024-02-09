@@ -1,0 +1,11 @@
+name: sandbox
+channels:
+  - defaults
+# It is preferred not to add further dependencies here, use requirements.txt
+# This way other Python packaging tools can leverage the same dependency list
+dependencies:
+- python=3.9
+- pip
+- pip:
+    - -r .devcontainer/requirements.txt
+    - -r src/flows/requirements.txt

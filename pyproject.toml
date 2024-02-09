@@ -1,0 +1,5 @@
+# Empty file to trigger the Python vscode extension on launch of devcontainer
+#
+# See https://github.com/microsoft/vscode-python/blob/main/package.json
+# See https://github.com/microsoft/vscode-remote-release/issues/9426
+# See https://github.com/microsoft/vscode/issues/196794
